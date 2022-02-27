@@ -1,0 +1,160 @@
+{
+	"id": "f45ed5e7-54c2-480a-8e9b-3e808d15cba3",
+	"name": "Teste Via Api Minu",
+	"timestamp": "2022-02-27T22:24:30.913Z",
+	"collection_id": "19780875-4800e2d7-5ad5-45a9-b836-a17fa301e556",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 4,
+	"totalFail": 4,
+	"results": [
+		{
+			"id": "efe3474c-cb73-42c3-8e56-9e265e2420d2",
+			"name": "Lista produtos cadastrados",
+			"url": "https://quartz-drain.glitch.me/products",
+			"time": 13249,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true,
+				"Body is string": false
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is string": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				13249
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Body is string": false
+				}
+			]
+		},
+		{
+			"id": "aa3dc48d-696a-43a9-8e18-c925c0a87b39",
+			"name": "Cadastra novos produtos",
+			"url": "https://quartz-drain.glitch.me/products",
+			"time": 200,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				200
+			],
+			"allTests": [
+				{
+					"Status code is 201": true
+				}
+			]
+		},
+		{
+			"id": "100cc104-b29a-4b2c-b6cf-9b9100c8afed",
+			"name": "Edita produto cadastrado",
+			"url": "https://quartz-drain.glitch.me/products/name/cavalo",
+			"time": 161,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 201": false,
+				"Validando o retorno da alteração(quantity)": false,
+				"Validando o retorno da alteração(value)": false
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Validando o retorno da alteração(quantity)": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Validando o retorno da alteração(value)": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				161
+			],
+			"allTests": [
+				{
+					"Status code is 201": false,
+					"Validando o retorno da alteração(quantity)": false,
+					"Validando o retorno da alteração(value)": false
+				}
+			]
+		},
+		{
+			"id": "5d60d6a5-7c2c-4951-b191-af51456415e3",
+			"name": "Deleta produtos cadastrados",
+			"url": "https://quartz-drain.glitch.me/products/name/cachorro",
+			"time": 154,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				154
+			],
+			"allTests": [
+				{
+					"Status code is 201": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 13764,
+	"collection": {
+		"requests": [
+			{
+				"id": "efe3474c-cb73-42c3-8e56-9e265e2420d2",
+				"method": "GET"
+			},
+			{
+				"id": "aa3dc48d-696a-43a9-8e18-c925c0a87b39",
+				"method": "POST"
+			},
+			{
+				"id": "100cc104-b29a-4b2c-b6cf-9b9100c8afed",
+				"method": "PUT"
+			},
+			{
+				"id": "5d60d6a5-7c2c-4951-b191-af51456415e3",
+				"method": "DELETE"
+			}
+		]
+	}
+}
