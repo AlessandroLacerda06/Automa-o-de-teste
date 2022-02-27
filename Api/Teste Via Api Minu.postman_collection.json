@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "4800e2d7-5ad5-45a9-b836-a17fa301e556",
+		"name": "Teste Via Api Minu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Lista produtos cadastrados",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body is string\", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson[1].name).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Body is string\", function () {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson[1].name).to.contains('cachorro')\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://quartz-drain.glitch.me/products",
+					"protocol": "https",
+					"host": [
+						"quartz-drain",
+						"glitch",
+						"me"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastra novos produtos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"  pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"name\": \"gato\",\r\n    \"value\": \"10\",\r\n    \"quantity\": \"25\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://quartz-drain.glitch.me/products",
+					"protocol": "https",
+					"host": [
+						"quartz-drain",
+						"glitch",
+						"me"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edita produto cadastrado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"     pm.test(\"Status code is 201\", function () {\r",
+							"     pm.response.to.have.status(201);\r",
+							"\r",
+							"    });\r",
+							"\r",
+							"\r",
+							"       pm.test(\"Validando o retorno da alteração(quantity)\", function () {\r",
+							"       const responseJson = pm.response.json();\r",
+							"       pm.expect(responseJson.quantity).to.equals(200)\r",
+							"\r",
+							"    });\r",
+							"\r",
+							"\r",
+							"      pm.test(\"Validando o retorno da alteração(value)\", function () {\r",
+							"      const responseJson = pm.response.json();\r",
+							"      pm.expect(responseJson.value).to.equals(150)\r",
+							"\r",
+							"    });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"cavalo\", \r\n    \"value\": \"150\", \r\n    \"quantity\": \"200\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://quartz-drain.glitch.me/products/name/cavalo",
+					"protocol": "https",
+					"host": [
+						"quartz-drain",
+						"glitch",
+						"me"
+					],
+					"path": [
+						"products",
+						"name",
+						"cavalo"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Porco",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta produtos cadastrados",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"  pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"name\": \"cachorro\"\r\n\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://quartz-drain.glitch.me/products/name/cachorro",
+					"protocol": "https",
+					"host": [
+						"quartz-drain",
+						"glitch",
+						"me"
+					],
+					"path": [
+						"products",
+						"name",
+						"cachorro"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
